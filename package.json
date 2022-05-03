@@ -1,7 +1,7 @@
 {
   "name": "static-site",
   "version": "1.0.0",
-  "description": "",
+  "description": "This application will prompt a command line user with questions about their project and preferences and will generate a readme based on that information.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^6.3.1"
-  }
+    "inquirer": "^6.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abrock3/HW-9-Readme-Generator.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Abrock3/HW-9-Readme-Generator/issues"
+  },
+  "homepage": "https://github.com/Abrock3/HW-9-Readme-Generator#readme"
 }
