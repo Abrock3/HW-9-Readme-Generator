@@ -1,13 +1,14 @@
-// TODO: Include packages needed for this application
+// fs and inquirer packages are required for this app to run, so these lines bring them in
 const fs = require("fs");
 const inquirer = require("inquirer");
-// TODO: Create an array of questions for user input
+// This array of questions will be used by inquirer to collect info from the user
 const questions = [
   {
     type: "input",
     message:
       "What is the name of your project? This will be displayed as the readme title.",
     name: "title",
+    // validate will ensure that required sections must be answered by the user
     validate(answer) {
       if (!answer) {
         return "Your readme must have a title.";
@@ -82,6 +83,7 @@ const questions = [
     },
   },
   {
+    // the list type gives the user several options to select from
     type: "list",
     message: "What license would you like to use?",
     choices: ["MIT", "BSD 3-Clause", "GNU GPLv3", "No License"],
@@ -123,13 +125,14 @@ const questions = [
   },
 ];
 
-// TODO: Create a function to initialize app
+// this is run upon starting the app; it first uses inquirer to ask the user questions about their application, then passes that data into another function
 function init() {
   inquirer.prompt(questions).then((answers) => {
     assembleReadme(answers);
   });
 }
 
+// this function will take the data the user provided and put it together into a readme
 function assembleReadme(readmeData) {
   let installationString = "";
   let screenshotString = "";
@@ -140,6 +143,9 @@ function assembleReadme(readmeData) {
   let appLinkString = "";
   const date = new Date();
   const year = date.getFullYear();
+
+  // the following if statements determine whether the user input data for certain sections, then generates a string of markdown if they did.
+  // these strings will later be inserted into the final readme string
   if (readmeData.installation) {
     installationString = `
     
@@ -149,14 +155,13 @@ ${readmeData.installation}`;
   }
   if (readmeData.appLink){
     appLinkString = `
-    
 Link to the deployed app: ${readmeData.appLink}
 
 `;
   }
   if (readmeData.screenshotPath) {
     // Depending on how the user gets the relative filepath of the screenshot, it may have backslashes instead of forward slashes, which doesn't appear to work in markdown.
-    // This will replace all back slashes with forward slashes to make it function properly
+    // This will replace all back slashes with forward slashes to make the screenshot function properly in markdown
     let moddedScreenshotPath = readmeData.screenshotPath.replace(/"\\"/g, "/");
     screenshotString = `
 
@@ -257,9 +262,11 @@ ${readmeData.credits}${licenseString}
 Feel free to reach out to me with questions at ${readmeData.email}.
 
 My GitHub profile is at https://github.com/${readmeData.username}.`;
+// now that the string is assembled, we can pass it into our next function
   writeToFile(readmeText);
 }
 
+// this function uses the file system package to write our assembled readmeText string into a READMEsample.md string
 function writeToFile(readMeText) {
   fs.writeFileSync("READMEsample.md", readMeText);
 }
