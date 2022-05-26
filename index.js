@@ -162,7 +162,7 @@ Link to the deployed app: ${readmeData.appLink}
   if (readmeData.screenshotPath) {
     // Depending on how the user gets the relative filepath of the screenshot, it may have backslashes instead of forward slashes, which doesn't appear to work in markdown.
     // This will replace all back slashes with forward slashes to make the screenshot function properly in markdown
-    let moddedScreenshotPath = readmeData.screenshotPath.replace(/"\\"/g, "/");
+    let moddedScreenshotPath = readmeData.screenshotPath.replaceAll("\\", "/");
     screenshotString = `
 
 Screenshot of the app during function:
