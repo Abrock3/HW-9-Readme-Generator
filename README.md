@@ -27,13 +27,11 @@ Screenshot of the app during function:
 
 ## Credits
 
-I used this tutorial to learn how to replace all instances of a character in a string: https://www.tutorialrepublic.com/faq/how-to-replace-character-inside-a-string-in-javascript.php
-
 Some starter code was given to me by Trey Eckels, as this was an assignment given in the process of completing a full stack boot camp with Georgia Tech. It was simply empty functions, with sparse comments hinting at a general code structure.
 
 Node.js was used in the creation and implementation of this app: https://nodejs.org/en/
 
-Inquirer, a npm package, was used in the creation and implementation of this app: https://www.npmjs.com/package/inquirer?ref=hackernoon.com
+Inquirer, a npm package, was used in the creation and implementation of this app: https://www.npmjs.com/package/inquirer?.com
 
 I have to credit my own app, for assisting me with creating this readme!
 
