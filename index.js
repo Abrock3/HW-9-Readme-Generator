@@ -148,7 +148,6 @@ function assembleReadme(readmeData) {
   // these strings will later be inserted into the final readme string
   if (readmeData.installation) {
     installationString = `
-    
 ## Installation:
 
 ${readmeData.installation}`;
@@ -248,7 +247,6 @@ ${
 ${installationString}
 
 ## Usage
-
 ${appLinkString}${
     readmeData.usage
   }${screenshotString}${contributionString}${testingString}
